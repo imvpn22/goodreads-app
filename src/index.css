@@ -8,7 +8,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+
+.bookList {
+     background-color: #f3f3f3;
+    list-style: outside none none;
+    margin: 0;
+    padding: 30px 15px 60px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bookCard {
+     background-color: #fff;
+    /* border: 2px solid #ccc; */
+    box-shadow: 6px 6px 15px 2px #cecece;
+    font-family: Arial,sans-serif;
+    margin: 15px;
+    min-height: 380px;
+    /* padding: 0 30px 25px; */
+    text-align: left;
+    width: 300px;
+    transition: all 0.2s ease-in;
+    position: relative;
+}
+
+.bookCard:hover {
+    box-shadow: 0px 0px 7px 1px #cecece;
 }

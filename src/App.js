@@ -439,6 +439,19 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        let res = convert.xml2json(xmlData, {
+          compact: true,
+          spaces: 0,
+          trim: true,
+          nativeType: true
+        });
+        res = JSON.parse(res);
+        let books = res.GoodreadsResponse.search.results.work;
+
+        this.setState({books});
+    }
+
     handleQuery = e => {
         let queryText = e.target.value;
 
@@ -446,8 +459,7 @@ class App extends Component {
 
         this.setState({queryText});
         // this.searchBook(queryText);
-    }
-
+    };
 
     searchBook = queryText => {
         console.log(queryText);
