@@ -1,3 +1,11 @@
+# Goodreads Book Search
+## About
+A simple web-app to search Books using Goodreads API.
+
+Using `https://cors-anywhere.herokuapp.com/` as proxy for API request.
+
+----------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
