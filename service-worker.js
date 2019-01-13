@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/goodreads-app/precache-manifest.86f2f47d47160ba5cd636144203b1816.js"
+  "/goodreads-app/precache-manifest.b011ce5aac07c3fd2e090e51c1ea23be.js"
 );
 
 workbox.clientsClaim();
