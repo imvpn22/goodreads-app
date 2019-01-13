@@ -2,6 +2,7 @@
 ## About
 A simple web-app to search Books using Goodreads API.
 
+Pagination `https://scotch.io/tutorials/build-custom-pagination-with-react`
 Using `https://cors-anywhere.herokuapp.com/` as proxy for API request.
 
 ----------------------
