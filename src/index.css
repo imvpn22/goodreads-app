@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color:  #333;
+  background-color: #eee;
 }
 
 .container-fluid {
@@ -15,7 +16,7 @@ body {
 .main {
     background: #eee;
     color: #444;
-    padding: 2em auto;
+    padding: 2em 0;
     width: 100%;
     min-height: 100vh;
     position: relative;
