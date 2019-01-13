@@ -2,35 +2,37 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color:  #333;
 }
 
-.container {
-    font-family: 'Rubik';
+.container-fluid {
+    font-family: 'Source Sans Pro';
 }
 .main {
     background: #eee;
     color: #444;
     padding: 2em auto;
     width: 100%;
+    min-height: 100vh;
+    position: relative;
 }
 .header {
     text-align: center;
     padding: .8em 0;
     font-size: 1.7em;
-    font-family: 'Source Sans Pro';
+    font-family: 'Rubik';
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 .searchForm {
-    padding: .8em 0;
+    padding: .3em 0;
     text-align: center;
 }
-.searchBox, .responseBox {padding: .8em 0;}
+.searchBox, .responseBox {padding: .3em 0;}
 .searchBox input, .searchBox button {
     padding: 7px 15px;
     border: none;
@@ -55,7 +57,6 @@ body {
     color: #555;
 }
 
-
 .bookList {
     list-style: outside none none;
     margin: 0;
@@ -65,7 +66,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .bookCard {
     /* background-color: #fff; */
     margin: 20px;
@@ -93,15 +93,15 @@ body {
     font-weight: 600;
 }
 .bookAuthor {
-    color: #444;
+    color: #555;
     padding: 0;
-    font-weight: 300;
+    font-weight: 500;
     font-size: .9em;
 }
 .bookRating {
     position: absolute;
     left: 0;
-    top: 265px;
+    top: 260px;
     background: #d4d4d48f;
     padding: 8px;
     border-radius: 5px;
@@ -110,18 +110,36 @@ body {
 }
 .bookOther {
     font-size: .8em;
-    color: #555;
+    font-weight: 300;
 }
 
-/* Style for pagination */
-.pagination a {
-  color: black;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color .3s;
+
+/* Override some Bootstrap pagination styles */
+ul.pagination {
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    li.page-item.active {
+        a.page-link {
+          color: saturate(darken($base-color, 50%), 5%) !important;
+          background-color: saturate(lighten($base-color, 7.5%), 2.5%) !important;
+          border-color: $base-color !important;
+      }
+  }
+
+  .page-link {
+    padding: 0.75rem 1rem;
+    min-width: 3.5rem;
+    text-align: center;
+    box-shadow: none !important;
+    border-color: $base-color !important;
+    color: saturate(darken($base-color, 30%), 10%);
+    font-weight: 900;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: $light-background;
+    }
 }
-.pagination a.active {
-  background-color: dodgerblue;
-  color: white;
 }
-.pagination a:hover:not(.active) {background-color: #ddd;}

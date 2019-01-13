@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pagination from './Pagination';
 
 class GoodReads extends Component {
 
@@ -20,26 +21,11 @@ class GoodReads extends Component {
          </div>;
     };
 
-    createPagination = () => {
-        return <div className="pagination">
-                        <span href="#">&laquo;</span>
-                        <span href="#">1</span>
-                        <span class="active" href="#">2</span>
-                        <span href="#">3</span>
-                        <span href="#">4</span>
-                        <span href="#">5</span>
-                        <span href="#">6</span>
-                        <span href="#">&raquo;</span>
-                    </div>
-    };
-
     render() {
-        let booksView = '';
+        let booksView = 'No Books';
         if (this.props.books && this.props.books.length > 0) {
             booksView = this.props.books.map(book => this.createBookView(book));
         }
-
-        let pagination = this.createPagination();
 
         return (
             <div className="main">
@@ -59,11 +45,19 @@ class GoodReads extends Component {
                     <div className="responseBox">
                         {this.props.msg}
                     </div>
+                    <Pagination
+                        currentPage={this.props.currentPage}
+                        totalRecords={this.props.totalRecords}
+                        totalPages={this.props.totalPages}
+                        onPageChanged={this.props.onPageChanged}
+                        pageNeighbours={this.props.pageNeighbours}
+                    />
                 </form>
+
                 <div className="bookList">
                     {booksView}
-                    {pagination}
                 </div>
+
             </div>
         );
     }
