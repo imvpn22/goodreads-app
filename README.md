@@ -1,13 +1,13 @@
 # Goodreads Book Search
 ## About
-A simple web-app to search Books using Goodreads API.
+A simple web-app to search Books using Goodreads API.    
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Pagination using [this](https://scotch.io/tutorials/build-custom-pagination-with-react) tutorial.       
 Using [https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/) as proxy for API request.
 
-----------------------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+----------------------
 
 ## Available Scripts
 
