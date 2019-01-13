@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import GoodReads from './GoodReads';
 
 const convert = require('xml-js');
+
+const USER_KEY = `tmNs0wHYZNwx5cr20pTg`;
 
 const xmlData = `<?xml version="1.0" encoding="UTF-8"?>
 <GoodreadsResponse>
@@ -435,7 +436,11 @@ class App extends Component {
         super(props);
         this.state = {
             books: [],
-            queryText: ''
+            queryText: '',
+            isSearching: false,
+            pageNo: 1,
+            totalPage: 1,
+            msg: ''
         }
     }
 
@@ -454,45 +459,63 @@ class App extends Component {
 
     handleQuery = e => {
         let queryText = e.target.value;
-
-        console.log(queryText);
-
         this.setState({queryText});
         // this.searchBook(queryText);
     };
 
-    searchBook = queryText => {
-        console.log(queryText);
+    searchBook = () => {
 
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
+        let queryText = this.state.queryText;
+        let pageNo = this.state.pageNo;
+        let url = `https://www.goodreads.com/search.xml?key=${USER_KEY}&q=${queryText}&page=${pageNo}`;
 
-                var xml = this.responseText;
-
-                let res = convert.xml2json(xml, {
+        fetch(url, {method: 'GET'})
+        .then(res => res.text())
+        .then(xml => {
+            let res = convert.xml2json(xml, {
                   compact: true,
                   spaces: 0,
                   trim: true,
                   nativeType: true
                 });
-                res = JSON.parse(res);
-                console.log(res.GoodreadsResponse.search.results.work);
-            }
-        };
-        xhttp.open("GET", `https://www.goodreads.com/search.xml?key=tmNs0wHYZNwx5cr20pTg&q=${queryText}`, true);
-        xhttp.send();
+
+            res = JSON.parse(res);
+            console.log(res);
+
+            let books = res.GoodreadsResponse.search.results.work;
+            let totalResults = res.GoodreadsResponse.search['total-results']._text;
+            let queryTime = res.GoodreadsResponse.search['query-time-seconds']._text;
+            let msg = `Fetched ${totalResults} results in ${queryTime} sec.`;
+
+            let totalPage = parseInt(totalResults, 10) / 20;
+
+            this.setState({books: books, isSearching: false, msg: msg, totalPage: totalPage});
+        }).catch(err => {
+            console.log(err);
+            this.setState({ isSearching: false, msg: 'Some error occured'});
+        })
     };
 
 
+    handleSubmit = e => {
+        e.preventDefault();
+        this.searchBook();
+        this.setState({isSearching: true});
+    };
+
     render() {
         return (
-            <div className="App">
+            <div className="container">
                 <GoodReads
                     queryText={this.state.queryText}
                     books={this.state.books}
                     handleQuery={this.handleQuery}
                     searchBook={this.searchBook}
+                    handleSubmit={this.handleSubmit}
+                    isSearching={this.state.isSearching}
+                    pageNo={this.state.pageNo}
+                    totalPage={this.state.totalPage}
+                    msg={this.state.msg}
                 />
             </div>
         );
