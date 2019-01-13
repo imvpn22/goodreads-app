@@ -1,13 +1,13 @@
 {
-  "main.css": "/goodreads-app/static/css/main.396d6edc.chunk.css",
-  "main.js": "/goodreads-app/static/js/main.deff8ddf.chunk.js",
-  "main.js.map": "/goodreads-app/static/js/main.deff8ddf.chunk.js.map",
-  "static/js/1.a587e81a.chunk.js": "/goodreads-app/static/js/1.a587e81a.chunk.js",
-  "static/js/1.a587e81a.chunk.js.map": "/goodreads-app/static/js/1.a587e81a.chunk.js.map",
+  "main.css": "/goodreads-app/static/css/main.e3b2be2c.chunk.css",
+  "main.js": "/goodreads-app/static/js/main.dd096e1e.chunk.js",
+  "main.js.map": "/goodreads-app/static/js/main.dd096e1e.chunk.js.map",
+  "static/js/1.ff03fff2.chunk.js": "/goodreads-app/static/js/1.ff03fff2.chunk.js",
+  "static/js/1.ff03fff2.chunk.js.map": "/goodreads-app/static/js/1.ff03fff2.chunk.js.map",
   "runtime~main.js": "/goodreads-app/static/js/runtime~main.48b4e8b3.js",
   "runtime~main.js.map": "/goodreads-app/static/js/runtime~main.48b4e8b3.js.map",
-  "static/css/main.396d6edc.chunk.css.map": "/goodreads-app/static/css/main.396d6edc.chunk.css.map",
+  "static/css/main.e3b2be2c.chunk.css.map": "/goodreads-app/static/css/main.e3b2be2c.chunk.css.map",
   "index.html": "/goodreads-app/index.html",
-  "precache-manifest.5ed4dccd7c3157ebc3d15dcbe8f30316.js": "/goodreads-app/precache-manifest.5ed4dccd7c3157ebc3d15dcbe8f30316.js",
+  "precache-manifest.f5f14c3c91bbdf3f053bd7944bdea435.js": "/goodreads-app/precache-manifest.f5f14c3c91bbdf3f053bd7944bdea435.js",
   "service-worker.js": "/goodreads-app/service-worker.js"
 }
